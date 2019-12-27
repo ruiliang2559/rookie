@@ -1,0 +1,25 @@
+#include <cstdio>
+#include <cstring>
+int main(){
+	char change[10][10]={"zero","one","two","three","four","five","six","seven","eight","nine"};
+	int sum=0,num=0,ans[10];
+	char str[110];
+	scanf("%s",str);
+	int len=strlen(str);
+	for(int i=0;i<len;i++){
+		sum+=str[i]-'0';
+	}
+	if(sum==0){
+		printf("zero");
+		return 0;
+	}
+	while(sum!=0){
+		ans[num++]=sum%10;
+		sum/=10;
+	}
+	printf("%s",change[ans[num-1]]);
+	for(int i=num-2;i>=0;i--){
+		printf(" %s",change[ans[i]]);
+	}
+	return 0;
+}
